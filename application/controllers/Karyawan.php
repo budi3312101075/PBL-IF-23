@@ -6,6 +6,9 @@ class Karyawan extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		if (!$this->session->userdata('username')) {
+			redirect('Login');
+		}
 		$this->load->model('M_karyawan');
 	}
 
@@ -127,16 +130,16 @@ class Karyawan extends CI_Controller
 			'protocol' => 'smtp',
 			'smtp_host' => 'ssl://smtp.googlemail.com',
 			'smtp_port' => 465,
-			'smtp_user' => 'pblkel22@gmail.com',
-			'smtp_pass' => 'hrtm iulf xvga xqop',
+			'smtp_user' => 'danaamalpolibatam@gmail.com',
+			'smtp_pass' => 'tmxx jxos ivne wqei',
 			'mailtype' => 'html',
 			'charset' => 'iso-8859-1',
 		);
 
 		$this->load->library('email', $config);
 		$this->email->set_newline("\r\n");
-		$this->email->from('pblkel22@gmail.com', 'DAP');
-		$this->email->to('pblkel22@gmail.com');
+		$this->email->from('danaamalpolibatam@gmail.com', 'DAP');
+		$this->email->to('danaamalpolibatam@gmail.com');
 		$this->email->subject('Pengajuan DAP');
 		$this->email->message('ada pengajuan silahkan untuk cek segera');
 		$this->email->send();

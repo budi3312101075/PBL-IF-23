@@ -8,6 +8,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <meta charset="utf-8">
     <title>Login</title>
 
+    <!-- pwa -->
+    <!-- appletouch -->
+    <link rel="apple-touch-icon" href="pwa2.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="shortcut icon" href="pwa1.png" type="image/png">
+
     <style type="text/css">
         ::selection {
             background-color: #E13300;
@@ -159,7 +167,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 
     </div>
+    <script>
+        var BASE_URL = '<?= base_url() ?>';
+        document.addEventListener('DOMContentLoaded', init, false);
 
+        function init() {
+            if ('serviceWorker' in navigator && navigator.onLine) {
+                navigator.serviceWorker.register(BASE_URL + 'service-worker.js')
+                    .then((reg) => {
+                        console.log('Registrasi service worker Berhasil', reg);
+                    }, (err) => {
+                        console.error('Registrasi service worker Gagal', err);
+                    });
+            }
+        }
+    </script>
 </body>
 
 </html>

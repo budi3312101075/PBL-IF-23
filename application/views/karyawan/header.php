@@ -22,6 +22,13 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/flaticon.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/icomoon.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/style.css">
+    <!-- pwa -->
+    <!-- appletouch -->
+    <link rel="apple-touch-icon" href="pwa2.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="shortcut icon" href="pwa1.png" type="image/png">
 </head>
 
 <body>

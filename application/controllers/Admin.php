@@ -10,6 +10,9 @@ class Admin extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        if (!$this->session->userdata('username')) {
+            redirect('Login');
+        }
         $this->load->model('M_manajemen');
     }
 
