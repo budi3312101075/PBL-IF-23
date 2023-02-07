@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Des 2022 pada 03.25
+-- Waktu pembuatan: 07 Feb 2023 pada 05.33
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 8.1.2
 
@@ -42,9 +42,7 @@ CREATE TABLE `keuangan` (
 --
 
 INSERT INTO `keuangan` (`id_keuangan`, `id_users`, `username`, `status`, `keterangan`, `tanggal`, `nominal`) VALUES
-(4, 4, 'superadmin', 'Pemasukan', 'pemasukan bulan november 2022', '2022-11-01', 5000000),
-(6, 6, 'admin', 'Pengeluaran', 'pengeluaran bantuan menikah ', '2022-11-28', 2000000),
-(7, 6, 'admin', 'Pemasukan', 'pemasukan dana bulan desember', '2022-12-01', 5000000);
+(19, 4, 'superadmin', 'Pemasukan', 'pemasukan bulan desember 2022', '2022-12-01', 5000000);
 
 -- --------------------------------------------------------
 
@@ -99,8 +97,7 @@ CREATE TABLE `pengajuan` (
 --
 
 INSERT INTO `pengajuan` (`id_pengajuan`, `id_users`, `username`, `tanggal`, `telepon`, `nominal`, `deskripsi`, `jenis_bantuan`, `bukti`, `status`, `deskripsi_status`, `bukti_transfer`) VALUES
-(29, 5, 'karyawan', '2022-11-27', '089519113444', '2.000.000', 'bantuan untuk menikah pada tanggal 28', 'bantuan menikah', 'image_2.jpg', 'Selesai', 'selesai', '16702476338292.png'),
-(49, 12, 'budiprayoga', '2022-12-21', '089519113444', '1.000.000', 'khitanan anak pada tanggal 25 desember', 'khitan anak', 'Foto4.jpg', 'Selesai', 'selesai', 'Foto1.jpg');
+(77, 5, 'karyawan', '2023-01-04', '089519113444', '1000000', 'saya akan menikah pada tanggal 10 januari 2023', 'bantuan menikah', 'Foto19.jpg', 'Selesai', 'selesai', '16702476338297.png');
 
 -- --------------------------------------------------------
 
@@ -137,19 +134,22 @@ INSERT INTO `user` (`id_users`, `username`, `password`, `level`, `no_telp`, `ema
 -- Indeks untuk tabel `keuangan`
 --
 ALTER TABLE `keuangan`
-  ADD PRIMARY KEY (`id_keuangan`);
+  ADD PRIMARY KEY (`id_keuangan`),
+  ADD KEY `id_users` (`id_users`);
 
 --
 -- Indeks untuk tabel `kriteria_dap`
 --
 ALTER TABLE `kriteria_dap`
-  ADD PRIMARY KEY (`id_kriteria`);
+  ADD PRIMARY KEY (`id_kriteria`),
+  ADD KEY `id_users` (`id_users`);
 
 --
 -- Indeks untuk tabel `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  ADD PRIMARY KEY (`id_pengajuan`);
+  ADD PRIMARY KEY (`id_pengajuan`),
+  ADD KEY `id_users` (`id_users`);
 
 --
 -- Indeks untuk tabel `user`
@@ -165,7 +165,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `keuangan`
 --
 ALTER TABLE `keuangan`
-  MODIFY `id_keuangan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_keuangan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT untuk tabel `kriteria_dap`
@@ -177,13 +177,35 @@ ALTER TABLE `kriteria_dap`
 -- AUTO_INCREMENT untuk tabel `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `id_pengajuan` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id_pengajuan` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id_users` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `keuangan`
+--
+ALTER TABLE `keuangan`
+  ADD CONSTRAINT `keuangan_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `user` (`id_users`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `kriteria_dap`
+--
+ALTER TABLE `kriteria_dap`
+  ADD CONSTRAINT `kriteria_dap_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `user` (`id_users`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `pengajuan`
+--
+ALTER TABLE `pengajuan`
+  ADD CONSTRAINT `pengajuan_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `user` (`id_users`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,0 +1,29 @@
+{
+    "name": "Sistem Informasi Dana Amal Polibatam",
+    "short_name": "dap",
+    "start_url": "localhost/PBL_DAP/",
+    "display": "fullscreen",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "description": "Progressive Web App DAP.",
+    "icons": [
+        {
+            "src": "assets/image/pwa1.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "assets/image/pwa2.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "assets/image/pwa3.png",
+            "sizes": "144x144",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

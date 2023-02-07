@@ -139,6 +139,21 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="<?php echo base_url() ?>assets/js/google-map.js"></script>
 <script src="<?php echo base_url() ?>assets/js/main.js"></script>
+<script>
+    var BASE_URL = '<?= base_url() ?>';
+    document.addEventListener('DOMContentLoaded', init, false);
+
+    function init() {
+        if ('serviceWorker' in navigator && navigator.onLine) {
+            navigator.serviceWorker.register(BASE_URL + 'service-worker.js')
+                .then((reg) => {
+                    console.log('Registrasi service worker Berhasil', reg);
+                }, (err) => {
+                    console.error('Registrasi service worker Gagal', err);
+                });
+        }
+    }
+</script>
 </body>
 
 </html>

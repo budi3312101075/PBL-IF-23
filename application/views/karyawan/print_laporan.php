@@ -32,7 +32,6 @@
                     <th>jenis bantuan</th>
                     <th>status</th>
                     <th>deskripsi status</th>
-                    <th>bukti transfer</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,7 +44,6 @@
                         <td><?php echo $row->jenis_bantuan; ?></td>
                         <td><?php echo $row->status; ?></td>
                         <td><?php echo $row->deskripsi_status; ?></td>
-                        <td><img src="<?php echo base_url() . 'assets/image_transfer/' . $row->bukti_transfer; ?>" width="50"></td>
                     </tr>
                 <?php endforeach ?>
             </tbody>
