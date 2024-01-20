@@ -36,7 +36,7 @@
  * @filesource
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+#[\AllowDynamicProperties]
 /**
  * URI Class
  *
@@ -82,7 +82,7 @@ class CI_URI {
 	 */
 	public $rsegments = array();
 
-	/**
+	  /**
 	 * Permitted URI chars
 	 *
 	 * PCRE character group allowed in URI segments
@@ -91,6 +91,13 @@ class CI_URI {
 	 */
 	protected $_permitted_uri_chars;
 
+	/**
+	 * CI Config
+	 *
+	 * @var	CI_Config
+	 */
+	public $config;
+	
 	/**
 	 * Class constructor
 	 *

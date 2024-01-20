@@ -139,6 +139,47 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="<?php echo base_url() ?>assets/js/google-map.js"></script>
 <script src="<?php echo base_url() ?>assets/js/main.js"></script>
+
+<script>
+    // mengambil nilai dari sesi 
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'http://localhost/PBL_DAP/Karyawan/pengajuan', true);
+
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            var sessionValue = xhr.responseText;
+            // Lakukan sesuatu dengan sessionValue
+            // console.log(sessionValue);
+        }
+    };
+
+    xhr.send();
+
+    function sendMail() {
+        (function() {
+            emailjs.init("svX2IuxeEUgE-fMzc"); //account public key
+        })();
+
+        var params = {
+            username: document.getElementById('username').value,
+            tanggal: document.querySelector("#tanggal").value,
+            telepon: document.querySelector("#telepon").value,
+            nominal: document.querySelector("#nominal").value,
+            deskripsi: document.querySelector("#deskripsi").value,
+            jenis_bantuan: document.querySelector("#jenis_bantuan").value,
+        };
+
+        var serviceID = "service_8sm7r1r"; //email service ID
+        var templateID = "template_n6bru0w"; //email template ID
+
+        emailjs.send(serviceID, templateID, params)
+            .then(res => {
+                alert("Email succes");
+            })
+            .catch();
+    }
+</script>
+
 <script>
     var BASE_URL = '<?= base_url() ?>';
     document.addEventListener('DOMContentLoaded', init, false);

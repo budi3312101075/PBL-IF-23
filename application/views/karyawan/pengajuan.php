@@ -13,7 +13,7 @@
 
                     <?php echo form_open_multipart('karyawan/tambah_pengajuan'); ?>
                     <div class="form-group">
-                        <input type="hidden" name="username" class="form-control" id="username" placeholder="Username">
+                        <input type="hidden" name="username" class="form-control" id="username" placeholder="Username" value="<?php echo $_SESSION['username']; ?>">
                     </div>
                     <div class="form-group">
                         <input type="date" name="tanggal" class="form-control" id="tanggal" placeholder="Tanggal">
@@ -28,7 +28,7 @@
                         <textarea id="deskripsi" name="deskripsi" placeholder="deskripsi klaim, misalnya: Telah lahir putra kami di RS Awal Bros ..." class="form-control col-sm-12"></textarea>
                     </div>
                     <div class="form-group">
-                        <select name="jenis_bantuan" class="form-control">
+                        <select name="jenis_bantuan" id="jenis_bantuan" class="form-control">
                             <?php foreach ($datajenis as $key) : ?>
                                 <option value="<?php echo $key->jenis_bantuan ?>"><?php echo $key->jenis_bantuan ?></option>
                             <?php endforeach ?>
@@ -38,7 +38,7 @@
                         <label>Bukti/Struk pembayaran</label><input type="file" name="bukti" class="form-control" id="bukti" placeholder="foto">
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Ajukan klaim" class="btn btn-primary py-3 px-4">
+                        <button onclick="sendMail();" type="submit" class="btn btn-primary py-3 px-4">Ajukan Klaim</button>
                     </div>
                     <?php echo form_close(); ?>
 

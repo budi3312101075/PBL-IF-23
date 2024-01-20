@@ -32,7 +32,7 @@
                                       <td><?php echo $karyawan->tanggal ?></td>
                                       <td><?php echo $karyawan->nominal ?></td>
                                       <td><?php echo $karyawan->jenis_bantuan ?></td>
-                                      <td><img src="<?php echo base_url() . 'assets/image_transfer/' . $karyawan->bukti_transfer; ?>" width="150"></td>
+                                      <td><img src="<?php echo base_url() . 'assets/image/' . $karyawan->bukti; ?>" width="150"></td>
                                       <td><?php echo $karyawan->status ?></td>
                                       <td><?php echo $karyawan->deskripsi_status ?></td>
                                   </tr>

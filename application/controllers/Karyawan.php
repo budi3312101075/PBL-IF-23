@@ -126,24 +126,6 @@ class Karyawan extends CI_Controller
 
 	public function tambah_pengajuan()
 	{
-		$config = array(
-			'protocol' => 'smtp',
-			'smtp_host' => 'ssl://smtp.googlemail.com',
-			'smtp_port' => 465,
-			'smtp_user' => 'danaamalpolibatam@gmail.com',
-			'smtp_pass' => 'tmxx jxos ivne wqei',
-			'mailtype' => 'html',
-			'charset' => 'iso-8859-1',
-		);
-
-		$this->load->library('email', $config);
-		$this->email->set_newline("\r\n");
-		$this->email->from('danaamalpolibatam@gmail.com', 'DAP');
-		$this->email->to('danaamalpolibatam@gmail.com');
-		$this->email->subject('Pengajuan DAP');
-		$this->email->message('ada pengajuan silahkan untuk cek segera');
-		$this->email->send();
-
 		$id_users = $this->session->userdata('id_users');
 		$username = $this->session->userdata('username');
 		$tanggal = $this->input->post('tanggal');

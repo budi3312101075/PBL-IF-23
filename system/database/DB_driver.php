@@ -57,6 +57,7 @@ abstract class CI_DB_driver {
 	 *
 	 * @var	string
 	 */
+	public $failover; 
 	public $dsn;
 
 	/**

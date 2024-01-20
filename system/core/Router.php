@@ -36,7 +36,7 @@
  * @filesource
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+#[\AllowDynamicProperties]
 /**
  * Router Class
  *
@@ -55,6 +55,7 @@ class CI_Router {
 	 *
 	 * @var	object
 	 */
+	public $uri;
 	public $config;
 
 	/**
